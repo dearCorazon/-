@@ -63,8 +63,33 @@ int GetElem(LNode * head, int n) {
 	elem = p->data;
 	return elem;
 };
+
+int  LocateElem(LNode *head, int e) {
+	LNode *p;
+	int i;
+	i = 1;
+	p = head->next;
+	if (head->next == NULL) {
+		cout << "Empty List!" << endl;
+		system("pause");
+		exit(0);
+
+	}
+	do {
+		if (p->data == e) {
+			break;
+		}
+		p = p->next;
+		i++;
+	} while (p!=NULL);
+	if (p == NULL) {
+		cout << "not have the element!" << endl;
+		system("pause");
+		exit(0);
+	}
+	return i;
+};
 /*
-LNode* LocateElem(LNode *head, int e) {};
 LNode* InsertElem(LNode *head, int i, int e) {};
 LNode* Delete(LNode *head, int i) {};
 */
@@ -75,6 +100,7 @@ void printLinked_List(LNode *head) {
 	
 	if (head->next == NULL) {
 		cout << "Empty Linked List!" << endl;
+
 		exit(0);
 	}
 	do {
@@ -89,7 +115,7 @@ int main()
 	LNode * head;
 	head = create_front(5);
 	printLinked_List(head);
-	cout << GetElem(head,5);
+	cout << LocateElem(head,0);
 	system("pause");
 	return 0;
 }
