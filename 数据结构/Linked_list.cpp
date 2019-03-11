@@ -1,7 +1,7 @@
 #include<iostream>
 #include <stdlib.h>
 using namespace std;
-
+//
 struct LNode {
 	int data;
 	LNode *next;
@@ -31,7 +31,7 @@ LNode* create_bottom(int n) {
 LNode* create_front(int n) {
 	LNode * head;
 	LNode * head_next;
-	head = (LNode*)malloc(sizeof(LNode));
+	head = (LNode*)malloc(sizeof(LNode)); 
 	head->next = NULL;
 	head_next = head;
 	int data;
@@ -49,6 +49,11 @@ LNode* create_front(int n) {
 	return head;
 }
 
+LNode* GetElem(LNode * head, int i) {
+};
+LNode* LocateElem(LNode *head, int e) {};
+LNode* InsertElem(LNode *head, int i, int e) {};
+LNode* Delete(LNode *head, int i) {};
 void printLinked_List(LNode *head) {
 	LNode *p;
 
