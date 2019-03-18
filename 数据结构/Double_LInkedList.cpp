@@ -35,6 +35,20 @@ DLNode*  createList(int n ) {
 	}
 	return head;
 };
+void insert(DLNode* head,int n,int data) {//ºó²å
+	DLNode *p,*new_node;
+	p = head;
+	int i;
+	for (i = 0; i < n; i++) {
+		p = p->next;
+	}
+	new_node = (DLNode*)malloc(sizeof(DLNode));
+	new_node->data = data; 
+	new_node->next = p->next;
+	new_node->prior = p;
+	p->next->prior = new_node;
+	p->next = new_node;
+}
 void print_List(DLNode * head) {
 	DLNode *p;
 	p = head->next;
@@ -43,9 +57,12 @@ void print_List(DLNode * head) {
 		p = p->next;
 	
 	} while (p!=NULL);
+	cout << endl;
 }
 int main() {
 	DLNode* head=createList(5);
+	print_List(head);
+	insert(head, 1, 100);
 	print_List(head);
 	system("pause");
 	return 0;
