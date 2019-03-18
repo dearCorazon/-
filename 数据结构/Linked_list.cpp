@@ -103,8 +103,7 @@ void if_Empty(LNode * head) {
 	}
 }
 /*
-LNode* InsertElem(LNode *head, int i, int e) {};
-LNode* Delete(LNode *head, int i) {};
+
 */
 void printLinked_List(LNode *head) {
 	LNode *p;
@@ -139,12 +138,25 @@ LNode* InsertElem(LNode *head ,int n,int data) {
 	p->next = newNode;
 	return head;
 }
+void Delete(LNode *head, int n) {	
+	LNode *p,*q;
+	p = head;
+	int i;
+	for (i = 1; i < n; i++) {
+		p = p->next;
+	}
+	q = p->next;
+	p->next = p->next->next;
+	q->next = NULL;
+	free(q);
+//还可以添加超长异常，但是可以在实现求表长函数之后加入；
+};
 int main()
 {
 	LNode * head;
 	head = create_front(5);
 	printLinked_List(head);
-	InsertElem(head,6,90);
+	Delete(head,6);
 	printLinked_List(head);
 	system("pause");
 	return 0;
