@@ -171,14 +171,7 @@ void Delete(LNode *head, int n) {
 
 };
 
-int main()
-{
-	LNode * head;
-	head = create_front(5);
-	Delete(head,9);
-	system("pause");
-	return 0;
-}
+
 //test1;
 //test2;
 //test3
