@@ -54,7 +54,16 @@ LNode* create_front(int n) {
 	}
 	return head;
 }
-
+int List_length(LNode *head) {
+	LNode *p;
+	int i = 0;
+	p = head;
+	do {
+		p = p->next;
+		i++;
+	} while (p->next != NULL);
+	return i;
+}
 int GetElem(LNode * head, int n) { 
 	int i, elem;
 	LNode *p;
@@ -138,7 +147,17 @@ LNode* InsertElem(LNode *head ,int n,int data) {
 	p->next = newNode;
 	return head;
 }
-void Delete(LNode *head, int n) {	
+void if_exceed_limit(LNode *head,int n) {
+	int i;
+	i=List_length(head);
+	if (n >i) {
+		cout << "Exceed the upper limit" << endl;
+		system("pause");
+		exit(0);
+	}
+}
+void Delete(LNode *head, int n) {
+	if_exceed_limit(head,n);
 	LNode *p,*q;
 	p = head;
 	int i;
@@ -149,15 +168,14 @@ void Delete(LNode *head, int n) {
 	p->next = p->next->next;
 	q->next = NULL;
 	free(q);
-//还可以添加超长异常，但是可以在实现求表长函数之后加入；
+
 };
+
 int main()
 {
 	LNode * head;
 	head = create_front(5);
-	printLinked_List(head);
-	Delete(head,6);
-	printLinked_List(head);
+	Delete(head,9);
 	system("pause");
 	return 0;
 }
