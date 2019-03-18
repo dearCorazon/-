@@ -27,7 +27,13 @@ LNode* create_bottom(int n) {
 	}
 	return head;
 };
-
+LNode* create_newNode(int data) {
+	LNode *new_Node;
+	new_Node = (LNode*)malloc(sizeof(LNode));
+	new_Node->data = data;
+	new_Node->next = NULL;
+	return new_Node;
+}
 LNode* create_front(int n) {
 	LNode * head;
 	LNode * head_next;
@@ -89,6 +95,13 @@ int  LocateElem(LNode *head, int e) {
 	}
 	return i;
 };
+void if_Empty(LNode * head) {
+	if (head->next == NULL) {
+		cout << "Empty Linked List!" << endl;
+
+		exit(0);
+	}
+}
 /*
 LNode* InsertElem(LNode *head, int i, int e) {};
 LNode* Delete(LNode *head, int i) {};
@@ -98,24 +111,41 @@ void printLinked_List(LNode *head) {
 
 	p = head->next;
 	
-	if (head->next == NULL) {
-		cout << "Empty Linked List!" << endl;
-
-		exit(0);
-	}
+	if_Empty(head);
 	do {
-		cout << p->data;
+		cout << " "<<p->data;
 		p = p->next;
 	} while (p != NULL);
 	cout << endl;
 }
 
+LNode* InsertElem(LNode *head ,int n,int data) {
+	LNode *newNode;
+	LNode *p;
+	p = head;
+	newNode = create_newNode(data);
+	if_Empty(head);
+	int i;
+	for (i = 0; i<n; i ++) {
+		p = p->next;
+	}
+	if (p == NULL) {
+		cout << "Exceed the upper limit"<< endl;
+		system("pause");
+		exit(0);
+		
+	}
+	newNode->next = p->next;
+	p->next = newNode;
+	return head;
+}
 int main()
 {
 	LNode * head;
 	head = create_front(5);
 	printLinked_List(head);
-	cout << LocateElem(head,0);
+	InsertElem(head,6,90);
+	printLinked_List(head);
 	system("pause");
 	return 0;
 }
