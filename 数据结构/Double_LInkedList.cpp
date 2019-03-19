@@ -72,12 +72,13 @@ void delete_List(DLNode *head,int n) {
 	p->next = NULL;
 	free(p);
 }
-int main() {
-	DLNode* head=createList(5);
-	print_List(head);
-	//insert(head, 1, 100);
-	delete_List(head, 3);
-	print_List(head);
-	system("pause");
-	return 0;
-}
+//
+//int main() {
+//	DLNode* head=createList(5);
+//	print_List(head);
+//	//insert(head, 1, 100);
+//	delete_List(head, 3);
+//	print_List(head);
+//	system("pause");
+//	return 0;
+//}
