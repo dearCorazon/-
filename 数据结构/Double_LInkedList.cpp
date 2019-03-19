@@ -55,14 +55,28 @@ void print_List(DLNode * head) {
 	do {
 		cout << " " << p->data;
 		p = p->next;
-	
+		
 	} while (p!=NULL);
 	cout << endl;
+}
+void delete_List(DLNode *head,int n) {
+	DLNode *p;
+	p = head->next;
+	int i = 1;
+	for (i; i <n; i++) {
+		p = p->next;
+	}
+	p->prior->next = p->next;
+	p->next->prior = p->prior;
+	p->prior = NULL;
+	p->next = NULL;
+	free(p);
 }
 int main() {
 	DLNode* head=createList(5);
 	print_List(head);
-	insert(head, 1, 100);
+	//insert(head, 1, 100);
+	delete_List(head, 3);
 	print_List(head);
 	system("pause");
 	return 0;
