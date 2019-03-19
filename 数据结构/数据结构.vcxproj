@@ -118,6 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CircularLinkedList.cpp" />
     <ClCompile Include="Double_LInkedList.cpp" />
     <ClCompile Include="Linked_list.cpp" />
   </ItemGroup>
